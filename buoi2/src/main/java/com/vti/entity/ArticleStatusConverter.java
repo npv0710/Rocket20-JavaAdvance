@@ -1,11 +1,9 @@
 package com.vti.entity;
 
 import javax.persistence.AttributeConverter;
-import javax.persistence.Converter;
 
 import com.vti.entity.Article.Status;
 
-@Converter(autoApply = true)
 public class ArticleStatusConverter implements AttributeConverter<Article.Status, String>{
 
 	public String convertToDatabaseColumn(Status attribute) {
@@ -21,5 +19,5 @@ public class ArticleStatusConverter implements AttributeConverter<Article.Status
 		}
 		return Article.Status.toEnum(dbData);
 	}
-
+	
 }

@@ -13,10 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Parameter;
 import org.hibernate.annotations.Type;
-
-import com.vti.entity.Article.Status;
 
 @Entity
 @Table(name="Article")
@@ -40,39 +37,17 @@ public class Article {
 		return type;
 	}
 	
-//	public String getCode() {
-//		return code;
-//	}
-//
-//	public void setCode(String code) {
-//		this.code = code;
-//	}
-
 	
 	@Column(name="id")
 	@Id
-	//@GeneratedValue(strategy=GenerationType.IDENTITY)
-//	@GenericGenerator(
-//		name = "article-sequence-generator",
-//		strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
-//		parameters = {
-//			@Parameter(name = "sequence_name", value = "article_sequence"),
-//			@Parameter(name = "initial_value", value = "10"),
-//			@Parameter(name = "increment_size", value = "1")
-//		}
-//	)
-//	@GeneratedValue(generator = "article-sequence-generator")
-//	private int id;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int id;
 	
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Type(type = "uuid-char")
-	private UUID id;
-	
-	@Column(name = "title", length = 50, nullable = false)
-	private String title;
-	
-	@Column(name = "type", length = 50, nullable = false)
-	private String type;
+//	@Column(name="id")
+//	@Id
+//	@GeneratedValue(strategy=GenerationType.AUTO)
+//	@Type(type = "uuid-char")
+//	private UUID id;
 	
 //	@Column(name = "`code`", length = 10)
 //	@Id
@@ -81,24 +56,70 @@ public class Article {
 //		strategy = "com.vti.entity.ArticleCodeGenerator"
 //	)
 //	@GeneratedValue(generator = "generator-code")
-//	private String code;
+//	private String code; 
 	
-	@Column(name = "`code`", length = 10)
-	private String code;
+	@Column(name = "title", length = 50, nullable = false)
+	private String title;
+	
+	@Column(name = "type", length = 50, nullable = false)
+	private String type;
 	
 //	@Column(name = "status", nullable = false)
-//	@Enumerated(EnumType.ORDINAL)
+//	//@Enumerated(EnumType.ORDINAL)
+//	@Enumerated(EnumType.STRING)
 //	private Status status;
 	
-	//@Column(columnDefinition = "enum('OPEN', 'REVEW', 'APPROVED', 'REJECTED')")
-	@Column(name ="status", nullable = false)
+//	@Column(columnDefinition = "enum('OPEN', 'REVIEW', 'APPROVED', 'REJECTED')")
+//	@Enumerated(EnumType.STRING)
+//	private Status status;
+	
+	@Column(name = "status", nullable = false)
 	@Convert(converter = ArticleStatusConverter.class)
-	//@Enumerated(EnumType.STRING)
 	private Status status;
 	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+//	public UUID getId() {
+//		return id;
+//	}
+//
+//	public void setId(UUID id) {
+//		this.id = id;
+//	}
+
+	public String getTitle() {
+		return title;
+	}
+
+//	public String getCode() {
+//		return code;
+//	}
+//
+//	public void setCode(String code) {
+//		this.code = code;
+//	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+
 	@Override
 	public String toString() {
-		return "[id = " + id + "; title = " + title + "; type = " + type + "; status: " + status + "]"; 
+		return "[id = " + id + "; title = " + title + "; type = " + type + "; status = " + status + "]"; 
 	}
 	
 	public enum Status {
@@ -123,4 +144,5 @@ public class Article {
 			return null;
 		}
 	}
+	
 }

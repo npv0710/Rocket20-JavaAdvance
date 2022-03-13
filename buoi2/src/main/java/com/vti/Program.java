@@ -3,17 +3,15 @@ package com.vti;
 import java.util.List;
 
 import com.vti.entity.Article;
-import com.vti.entity.Order;
 import com.vti.repository.ArticleRepository;
-import com.vti.repository.OrderRepository;
 
 public class Program {
 	public static void main(String[] args) {
-		System.out.println("Buoi2 Java Advance");
+		System.out.println("Java advance buoi2");
 		
-//		ArticleRepository articleRepository = new ArticleRepository();
-//		
-//		Article article = new Article("Java Advance", "Backend", Article.Status.OPEN);
+		ArticleRepository articleRepository = new ArticleRepository();
+		
+//		Article article = new Article("Vue.js", "Frontend", Article.Status.APPROVED);
 //		
 //		articleRepository.createArticle(article);
 		
@@ -21,22 +19,15 @@ public class Program {
 //		
 //		articleRepository.createArticle(article2);
 		
-//		List<Article> articles = articleRepository.getAllArticles();
+//		List<Article> articles = articleRepository.getListArticles();
 //		
-//		for (Article article : articles) {
-//			System.out.println(article);
+//		for (Article item : articles) {
+//			System.out.println(item);
 //		}
 		
-		OrderRepository orderRepository = new OrderRepository();
+		//articleRepository.deleteArticle(1);
 		
-		Order.OrderPK pk = new Order.OrderPK();
-		pk.setOrderId(2);
-		pk.setProductId(5);
+		articleRepository.updateArticle(2, "HTML && CSS");
 		
-		Order order = new Order();
-		order.setId(pk);
-		order.setTitle("Order 1");
-		
-		orderRepository.createOrder(order);
 	}
 }

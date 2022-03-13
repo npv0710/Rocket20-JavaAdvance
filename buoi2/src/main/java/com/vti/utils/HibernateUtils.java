@@ -6,9 +6,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
-
 import com.vti.entity.Article;
-import com.vti.entity.Order;
 
 public class HibernateUtils {
 	private static HibernateUtils instance;
@@ -29,7 +27,6 @@ public class HibernateUtils {
 		configuration.configure("hibernate.cfg.xml");
 		
 		configuration.addAnnotatedClass(Article.class);
-		configuration.addAnnotatedClass(Order.class);
 	}
 	
 	private SessionFactory buildSessionFactory() {
