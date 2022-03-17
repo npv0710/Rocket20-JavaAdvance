@@ -18,4 +18,19 @@ public class AccountService implements IAccountService{
 		return accountRepository.getListAccounts();
 	}
 
+	@Override
+	public Account getAccountById(int id) {
+		return accountRepository.getAccountById(id);
+	}
+
+	@Override
+	public Account getAccountByUsername(String username) {
+		return accountRepository.getAccountByUsername(username);
+	}
+
+	@Override
+	public void addNewAccount(Account ac) {
+		accountRepository.addNewAccount(ac);
+	}
+
 }

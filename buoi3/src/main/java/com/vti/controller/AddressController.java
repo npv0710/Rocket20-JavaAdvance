@@ -26,7 +26,8 @@ private IAddressService addressService;
 		List<Address> addresses = addressService.getListAddresses();
 		List<AddressDTO> listAddressDTO = new ArrayList();
 		for (Address address : addresses) {
-			//AddressDTO addDTO = new AddressDTO(address.getId(), address.getStreet(), address.getCity(), address.getAccount().getUsername());
+			//AddressDTO addDTO = new AddressDTO(address.getId(), address.getStreet(), address.getCity(), "123abc");
+			
 			AddressDTO addDTO = new AddressDTO(address.getId(), address.getStreet(), address.getCity(), address.getAccounts().toString());
 			listAddressDTO.add(addDTO);
 		}

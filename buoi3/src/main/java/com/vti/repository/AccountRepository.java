@@ -33,4 +33,53 @@ public class AccountRepository implements IAccountRepository{
 		}
 	}
 	
+	@Override
+	public Account getAccountById(int id) {
+		Session session = null;
+		
+		try {
+			session = hibernateUtils.openSession();
+			Account account = session.get(Account.class, id);
+			//System.out.println(query.list());
+			return account;
+		}finally {
+			if (session != null && session.isOpen()) {
+				session.close();
+			}
+		}
+	}
+	
+	@SuppressWarnings({ "rawtypes" })
+	@Override
+	public Account getAccountByUsername(String username) {
+		Session session = null;
+		
+		try {
+			session = hibernateUtils.openSession();
+			Query query = session.createQuery("FROM Account WHERE username = :parameterUsername");
+			query.setParameter("parameterUsername", username);
+			Account account = (Account) query.uniqueResult();
+			//System.out.println(query.list());
+			return account;
+		}finally {
+			if (session != null && session.isOpen()) {
+				session.close();
+			}
+		}
+	}
+	
+	@Override
+	public void addNewAccount(Account ac) {
+		Session session = null;
+		try {
+			session = hibernateUtils.openSession();
+			session.save(ac);
+		}finally {
+			if (session != null && session.isOpen()) {
+				session.close();
+			}
+		}
+	}
+	
+	
 }
