@@ -85,7 +85,7 @@ function loadAccount() {
 
         flagUpdateAccount = true
 
-        let index = parseInt($(this).parents('tr').find('td').eq(1).html()) -1
+        let index = parseInt($(this).parents('tr').find('td').eq(1).html()) - 1
         console.log(index)
 
         let record = dataTable.row(index).data()
