@@ -14,4 +14,6 @@ public interface IAccountRepository {
 
 	void addNewAccount(Account ac);
 	
+	List<Account> getListAccountsWithSearch(String search);
+	
 }

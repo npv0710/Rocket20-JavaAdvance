@@ -33,4 +33,9 @@ public class AccountService implements IAccountService{
 		accountRepository.addNewAccount(ac);
 	}
 
+	@Override
+	public List<Account> getListAccountsWithSearch(String search) {
+		return accountRepository.getListAccountsWithSearch(search);
+	}
+
 }

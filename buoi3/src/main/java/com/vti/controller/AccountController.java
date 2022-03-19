@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.vti.entity.Account;
@@ -33,9 +34,27 @@ public class AccountController {
 		accountService = new AccountService();
 	}
 	
+//	@GetMapping()
+//	public List<AccountDTO> getListAccounts() {
+//		List<Account> accounts = accountService.getListAccounts();
+//		List<AccountDTO> listAccountDTO = new ArrayList();
+//		for (Account account : accounts) {
+//			AccountDTO acDTO = new AccountDTO(account.getId(), 
+//					account.getUsername(), account.getFirstName(), account.getLastName(),
+//					account.getEmail(), account.getPassword(), account.getRole().toString(),
+//					account.getAddress().toString());
+////			AccountDTO acDTO = new AccountDTO(account.getId(), 
+////					account.getUsername(), account.getFirstName(), account.getLastName(),
+////					account.getEmail(), account.getPassword(), account.getRole().toString(),
+////					"HN");
+//			listAccountDTO.add(acDTO);
+//		}
+//		return listAccountDTO;
+//	}
+//	
 	@GetMapping()
-	public List<AccountDTO> getListAccounts() {
-		List<Account> accounts = accountService.getListAccounts();
+	public List<AccountDTO> getListAccountsWithSearch(@RequestParam(name = "search") String search) {
+		List<Account> accounts = accountService.getListAccountsWithSearch(search);
 		List<AccountDTO> listAccountDTO = new ArrayList();
 		for (Account account : accounts) {
 			AccountDTO acDTO = new AccountDTO(account.getId(), 

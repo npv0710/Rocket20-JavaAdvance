@@ -9,4 +9,5 @@ public interface IAccountService {
 	Account getAccountById(int id);
 	Account getAccountByUsername(String username);
 	void addNewAccount(Account ac);
+	List<Account> getListAccountsWithSearch(String search);
 }
