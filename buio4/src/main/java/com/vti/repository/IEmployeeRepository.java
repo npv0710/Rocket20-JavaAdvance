@@ -10,4 +10,5 @@ public interface IEmployeeRepository {
 	List<ContractEmployee> getListContractEmployeees();
 	
 	void createRegularEmployee(RegularEmployee reularEmployee);
+	List<RegularEmployee> getListRegularEmployeesWithSearch(String search);
 }

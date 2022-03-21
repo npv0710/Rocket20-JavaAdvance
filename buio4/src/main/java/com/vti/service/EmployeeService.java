@@ -28,4 +28,9 @@ public class EmployeeService implements IEmployeeService{
 		employeeRepository.createRegularEmployee(regularEmployee);
 	}
 
+	@Override
+	public List<RegularEmployee> getListRegularEmployeesWithSearch(String search) {
+		return employeeRepository.getListRegularEmployeesWithSearch(search);
+	}
+
 }

@@ -9,4 +9,5 @@ public interface IEmployeeService {
 	List<RegularEmployee> getListRegularEmployee();
 	List<ContractEmployee> getListContractEmployee();
 	void createRegularEmployee(RegularEmployee regularEmployee);
+	List<RegularEmployee> getListRegularEmployeesWithSearch(String search);
 }
