@@ -1,6 +1,7 @@
 package com.vti.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
@@ -23,8 +24,10 @@ public interface IAccountRepository extends JpaRepository<Account, Integer>, Jpa
 //	List<Account> getListAccountsAddDepartment();
 	
 	boolean existsByUserName(String username);
+	
+	boolean existsByEmail(String email);
 
-	Account findByUserName(String username);
+	Optional<Account> findByUserName(String username);
 	
 	@Query("UPDATE Account SET password =: newPassword WHERE id =: id")
 	List<Account> changePasswordAccount(int id, String newPaswword);
