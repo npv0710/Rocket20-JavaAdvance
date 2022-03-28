@@ -32,7 +32,7 @@
     </script>
 
     <!-- Load chuc nang -->
-	<script type="text/javascript" src="/html/js/index.js" defer></script>
+    <script type="text/javascript" src="/html/js/index.js" defer></script>
     <script type="text/javascript" src="/html/js/account.js" defer></script>
 </head>
 
@@ -72,7 +72,7 @@
                             </li>
                         </ul>
                     </li>
-                    
+
                 </ul>
 
                 <div class="sidebar-bottom d-none d-lg-block">
@@ -298,7 +298,7 @@
             </nav>
 
             <main class="content">
-                
+
             </main>
 
             <footer class="footer">
@@ -329,10 +329,114 @@
                 </div>
             </footer>
         </div>
+
+        <!-- BEGIN danger modal -->
+        <div class="modal fade" id="defaultModalDanger" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title">Delete Account</h3>
+                        <button id="btn_close_delete_account" type="button" class="close" data-dismiss="modal"
+                            aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body m-3">
+                        <p class="mb-0">Are you sure you want to delete your account?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="btn_no_account" type="button" class="btn btn-secondary"
+                            data-dismiss="modal">No</button>
+                        <button id="btn_delete_account" type="button" class="btn btn-danger">Yes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--  -->
+
+        <!-- BEGIN warning modal -->
+        <div class="modal fade" id="defaultModalWarning" tabindex="-1" role="dialog"> <!---Form Acount --->
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 id="title_form_account" class="modal-title">Edit Account</h3>
+                        <button id="btn_close_form_account" type="button" class="close" data-dismiss="modal"
+                            aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body m-3">
+                        <form id="form_account">
+                            <div class="form-group">
+                                <label>Username</label>
+                                <input id="user_name" class="form-control form-control-lg" type="text" name="username" 
+                                    placeholder="" required>
+                            </div>
+                            <div class="form-group">
+                                <label>First Name</label>
+                                <input id="first_name" class="form-control form-control-lg" type="text" name="firstname" 
+                                placeholder="" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Last Name</label>
+                                <input id="last_name" class="form-control form-control-lg" type="text" name="lastname"
+                                    placeholder="" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Role</label>
+                                <div class="mb-3">
+                                    <select id="role" class="form-control" name="role" required>
+                                        <option value="none" selected disabled hidden></option>
+                                        <option value="USER">USER</option>
+                                        <option value="MODERATOR">MODERATOR</option>
+                                        <option value="ADMIN">ADMIN</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- <div class="form-group">
+                                <select class="form-control select2" data-toggle="select2" multiple="">
+                                    <option value="one">First</option>
+                                    <option value="two">Second</option>
+                                    <option value="three">Third</option>
+                                  </select>
+                            </div> -->
+                            <div class="form-group">
+                                <label>Department</label>
+                                <select id="account_department" class="form-control" name="department" required>
+                                    <!-- <option value="none" selected disabled hidden>Department</option> -->
+                                    <!-- <option value=1>Markerting</option>
+                                    <option value=2>Sale</option>
+                                    <option value=3>Technic</option>
+                                    <option value=4>Deputy Director</option>
+                                    <option value=5>Director</option>
+                                    <option value=6>Finance</option> -->
+                                </select>
+                            </div>
+                            <div class="text-center mt-3">
+                                <button id="btn_save_account" type ="submit" class="btn btn-primary">Save</button>
+                                <button id="btn_dismiss_form_account" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END warning modal -->
+
     </div>
 
     <script src="js\app.js"></script>
-
+    <script>
+        // $(".select2").each(function () {
+        //     $(this)
+        //         .wrap("<div class=\"position-relative\"></div>")
+        //         .select2({
+        //             placeholder: "",
+        //             dropdownParent: $(this).parent()
+        //         });
+        // })
+    </script>
 </body>
 
 </html>
