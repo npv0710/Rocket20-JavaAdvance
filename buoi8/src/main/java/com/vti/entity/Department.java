@@ -37,7 +37,7 @@ public class Department{
 	@Column(name = "total_member", nullable = false)
 	private int totalMember;
 	
-	@Column(name = "type", columnDefinition = "ENUM('DEV', 'TEST', 'SCRUM_MASTER', 'PM')")
+	@Column(name = "type", columnDefinition = "ENUM('Dev', 'Test', 'Scrum_Master', 'PM')")
 	@Enumerated(EnumType.STRING)
 	private DepartmentType type;
 	
@@ -50,7 +50,7 @@ public class Department{
 	private List<Account> accounts;
 	
 	public enum DepartmentType {
-		DEV, TEST, SCRUM_MASTER, PM;
+		Dev, Test, Scrumn_Master, PM;
 		
 		public static DepartmentType toEnum(String type) {
 			for(DepartmentType item : DepartmentType.values()) {

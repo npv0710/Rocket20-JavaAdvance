@@ -9,16 +9,16 @@
                     <div class="row-header">
                         <div class="mb-3 form-control-filter">
                             <select id="select_role_account" class="form-control select">
-                                <option value="none" selected disabled hidden>Role</option>
-                                <option value="USER">USER</option>
-                                <option value="MODERATOR">MODERATOR</option>
-                                <option value="ADMIN">ADMIN</option>
+                                <option value="none" selected hidden>Role</option>
+                                <option value="Admin">Admin</option>
+                                <option value="Employee">Employee</option>
+                                <option value="Manager">Manager</option>
                             </select>
                             <i class="material-icons icon-actions icon-close">&#xe5cd;</i>
                         </div>
                         <div class="mb-3 form-control-filter">
                             <select id="select_department_account" class="form-control select">
-                                <option value="none" selected disabled hidden>Department</option>
+                                <option value="none" selected hidden>Department</option>
                                 <!-- <option value=1>Markerting</option>
                                 <option value=2>Sale</option>
                                 <option value=3>Technic</option>
@@ -31,9 +31,13 @@
                     </div>
                     <div class="row-header table-header-options">
                         <div class="form-control search-input">
-                            <input id="search_input_account" type="text" placeholder="Search by name...">
+                            <input id="search_input_account" type="text" placeholder="Search by name..." spellcheck="false">
                             <i class="material-icons icon-actions icon-close">&#xe5cd;</i>
-                            <i id="icon_search_account" class="material-icons icon-search">&#xe8b6;</i>
+                            <i id="icon_search_account" 
+                                class="material-icons icon-search"
+                            >
+                                &#xe8b6;
+                            </i>
                         </div>
                         <div>
                             <button id="btn_refresh_account" class="btn-modal icon-refresh"><i
@@ -58,7 +62,7 @@
     </div>
 
 </div>
-<script>
+<!-- <script>
     $(document).ready(function() {
         console.log('account page js...')
         var dataTable = null
@@ -121,20 +125,6 @@
                     //console.log(error)
                 }
             })
-
-            // var settings = {
-            //     "url": "http://localhost:8888/api/accounts/paging?size=10&sort=id,asc&search=dang",
-            //     "method": "GET",
-            //     "timeout": 0,
-            //     "headers": {
-            //         "Content-Type": "application/json"
-            //     },
-            //     "data": JSON.stringify({"role":"USER","departmentId":3}),
-            //     };
-
-            //     $.ajax(settings).done(function (response) {
-            //     console.log(response);
-            // });
         }
 
         function createTableAccount(listAccounts) {
@@ -269,17 +259,31 @@
         $('#icon_search_account').on('click', function() {
             let role = $('#select_role_account').val()
             let departmentId = $('#select_department_account').val()
-            let inputSearch = $('#search_input_account').val()
-        
-            if (departmentId == null) departmentId = 0;
-            if (inputSearch === '') inputSearch = null;
+            let search = $('#search_input_account').val()
+            
+            console.log('departmentId: ' + departmentId)
+            console.log(role)
+
+            //Note
+            if (departmentId === 'none') departmentId = 0
+            else departmentId = parseInt(departmentId)
+
+            if (search === '') search = null
+            if (role === 'none') role = ''
+
         
             dataTable.destroy()
         
-            getListAccounts(role, departmentId, inputSearch, 1, PAGE_SIZE, ORDER_BY);
+            getListAccounts(role, departmentId, search, 1, PAGE_SIZE, ORDER_BY);
         })
 
         $('#btn_delete_multil_account').click(function() {
         })
     })
+</script> -->
+
+<script>
+    // function _handleClickIconSearch () {
+    //     alert('123abc')
+    // }
 </script>

@@ -5,7 +5,9 @@ $(document).ready(function () {
         $('.content').load('home.html')
     }
     menuList[2].onclick = function(){
-        $('.content').load('account.html')
+        $('.content').load('account.html', function() {
+            loadAccountJs()
+        })
     }
     menuList[3].onclick = function(){
         $('.content').load('department.html')
