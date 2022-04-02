@@ -1,0 +1,66 @@
+<div class="container-fluid p-0">
+
+    <p id = "error_message_authentication" style="color:red;text-align:center;"></p>
+    <h1 class="h3 mb-3">Account List</h1>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                
+                <div class="card-header" id="card_header_account">
+                    <div class="row-header">
+                        <div class="mb-3 form-control-filter">
+                            <select id="select_role_account" class="form-control select">
+                                <option value="none" selected hidden>Role</option>
+                                <option value="Admin">Admin</option>
+                                <option value="Employee">Employee</option>
+                                <option value="Manager">Manager</option>
+                            </select>
+                            <i class="material-icons icon-actions icon-close">&#xe5cd;</i>
+                        </div>
+                        <div class="mb-3 form-control-filter">
+                            <select id="select_department_account" class="form-control select">
+                                <option value="none" selected hidden>Department</option>
+                                <!-- <option value=1>Markerting</option>
+                                <option value=2>Sale</option>
+                                <option value=3>Technic</option>
+                                <option value=4>Deputy Director</option>
+                                <option value=5>Director</option>
+                                <option value=6>Finance</option> -->
+                            </select>
+                            <i class="material-icons icon-actions icon-close">&#xe5cd;</i>
+                        </div>
+                    </div>
+                    <div class="row-header table-header-options">
+                        <div class="form-control search-input">
+                            <input id="search_input_account" type="text" placeholder="Search by name..." spellcheck="false">
+                            <i class="material-icons icon-actions icon-close">&#xe5cd;</i>
+                            <i id="icon_search_account" 
+                                class="material-icons icon-search"
+                            >
+                                &#xe8b6;
+                            </i>
+                        </div>
+                        <div>
+                            <button id="btn_refresh_account" class="btn-modal icon-refresh"><i
+                                    class="material-icons icon-actions">&#xe863;</i></button>
+                            <button id="btn_add_account" class="btn-modal icon-add" data-toggle="modal"
+                                data-target="#defaultModalWarning"><i
+                                    class="material-icons icon-actions">&#xea20;</i></button>
+                            <button id="btn_delete_multiple_account" class="btn-modal icon-delete">
+                                <i class="material-icons icon-actions">&#xE872;</i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table id="datatables_accounts" class="table table-striped" style="width:100%">
+
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

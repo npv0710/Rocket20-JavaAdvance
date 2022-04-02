@@ -1,0 +1,226 @@
+<div class="container-fluid p-0">
+
+    <h1 class="h3 mb-3">Department List</h1>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row-header">
+                        <div class="form-group">
+                            <label class="form-label">Min Date</label>
+                            <div class="input-group date" id="datetimepicker-date" data-target-input="nearest">
+                                <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker-date">
+                                <div class="input-group-append" data-target="#datetimepicker-date" data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" id="filter_date">
+                            <label class="form-label">Max Date</label>
+                            <div class="input-group date" id="datetimepicker-date2" data-target-input="nearest">
+                                <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker-date2">
+                                <div class="input-group-append" data-target="#datetimepicker-date2" data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Type</label>
+                            <div class="mb-3">
+                                <select id="select_type_depatment" class="form-control" required>
+                                    <option value="none" selected disabled hidden></option>
+                                    <option value="Dev">Dev</option>
+                                    <option value="Test">Test</option>
+                                    <option value="ScrumMaster">Scrum_master</option>
+                                    <option value="PM">PM</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-header table-header-options">
+                        <div class="form-control search-input search-department">
+                            <input id="search_input_department" type="text" placeholder="Search by name...">
+                            <i id="icon_serach_department" class="material-icons icon-search">&#xe8b6;</i>
+                        </div>
+                        <div>
+                            <button id="btn_refresh_department" class="btn-modal icon-refresh"><i class="material-icons icon-actions">&#xe863;</i></button>
+                            <button id="btn_add_department" class="btn-modal icon-add" data-toggle="modal" data-target="#defaultModalWarning2"><i class="material-icons icon-actions">&#xea20;</i></button>
+                            <button id="btn_delete_multi_deparment" class="btn-modal icon-delete">
+                                <i class="material-icons icon-actions">&#xE872;</i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table id="datatables_departments" class="table table-striped" style="width:100%">
+                        
+                    </table>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- BEGIN delete department warning modal -->
+<div class="modal fade" id="defaultModalDanger2" tabindex="-1" role="dialog"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 class="modal-title">Delete Department</h3>
+            <button id="btn_close_delete_department" type="button" class="close" data-dismiss="modal"
+                aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body m-3">
+            <p class="mb-0">Are you sure you want to delete your department?</p>
+        </div>
+        <div class="modal-footer">
+            <button id="btn_no_department" type="button" class="btn btn-secondary"
+                data-dismiss="modal">No</button>
+            <button id="btn_delete_department" type="button" class="btn btn-danger">Yes</button>
+        </div>
+    </div>
+</div>
+</div>
+<!--END delete deoartment warning modal -->
+
+<!-- BEGIN add account modal -->
+<div class="modal fade" id="modal_add_account_department" tabindex="-1" role="dialog"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 class="modal-title">Add account into Sale</h3>
+            <button id="btn_close_add_account_department" type="button" class="close" data-dismiss="modal"
+                aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body card-body">
+            <table id="datatables_accounts_department" class="table table-striped" style="width:100%">
+                        
+            </table>
+        </div>
+        <div class="modal-footer">
+            <button id="btn_save_accounts_department" type="button" class="btn btn-secondary">Save</button>
+            <button id="btn_cancel_accounts_department" type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+        </div>
+    </div>
+</div>
+</div>
+<!--END add account modal -->
+<!-- BEGIN edit deppartment modal -->
+<div class="modal fade" id="defaultModalWarning2" tabindex="-1" role="dialog"> <!---Form Acount --->
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="title_form_department" class="modal-title">Create New Department</h3>
+                <button id="btn_close_form_department" type="button" class="close" data-dismiss="modal"
+                    aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body m-3">
+                <form id="form_department">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input id="department_name" class="form-control form-control-lg" type="text" name="departmentName" 
+                            placeholder="" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Type</label>
+                        <select id="department_type" class="form-control form-control-lg">
+                            <option value="Dev">Dev</option>
+                            <option value="Test">Test</option>
+                            <option value="ScrumMaster">ScrumMaster</option>
+                            <option value="PM">PM</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="div_add_accounts" style="display: none;">
+                        <label>Add accounts</label>
+                        <input class="form-control form-control-lg" type="text" placeholder="" required/>
+                    </div>
+                    <div class="mt-3 btn-group-department">
+                        <div>
+                            <button id="btn_add_account_department" class="btn btn-primary">Add Account</button>
+                        </div>
+                        <div>
+                            <button id="btn_save_department" type ="submit" class="btn btn-primary">Save</button>
+                            <button id="btn_dismiss_form_department" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END eidt department modal -->
+
+<script>
+    $(function() {
+        // Select2
+        $(".select2").each(function() {
+            $(this)
+                .wrap("<div class=\"position-relative\"></div>")
+                .select2({
+                    placeholder: "Select value",
+                    dropdownParent: $(this).parent()
+                });
+        })
+        // Daterangepicker
+        $("input[name=\"daterange\"]").daterangepicker({
+            opens: "left"
+        });
+        $("input[name=\"datetimes\"]").daterangepicker({
+            timePicker: true,
+            opens: "left",
+            startDate: moment().startOf("hour"),
+            endDate: moment().startOf("hour").add(32, "hour"),
+            locale: {
+                format: "M/DD hh:mm A"
+            }
+        });
+        $("input[name=\"datesingle\"]").daterangepicker({
+            singleDatePicker: true,
+            showDropdowns: true
+        });
+        // Datetimepicker
+        $('#datetimepicker-minimum').datetimepicker();
+        $('#datetimepicker-view-mode').datetimepicker({
+            viewMode: 'years'
+        });
+        $('#datetimepicker-time').datetimepicker({
+            format: 'LT'
+        });
+        $('#datetimepicker-date').datetimepicker({
+            format: 'L'
+        });
+        $('#datetimepicker-date2').datetimepicker({
+            format: 'L'
+        });
+        var start = moment().subtract(29, "days");
+        var end = moment();
+
+        function cb(start, end) {
+            $("#reportrange span").html(start.format("MMMM D, YYYY") + " - " + end.format("MMMM D, YYYY"));
+        }
+        $("#reportrange").daterangepicker({
+            startDate: start,
+            endDate: end,
+            ranges: {
+                "Today": [moment(), moment()],
+                "Yesterday": [moment().subtract(1, "days"), moment().subtract(1, "days")],
+                "Last 7 Days": [moment().subtract(6, "days"), moment()],
+                "Last 30 Days": [moment().subtract(29, "days"), moment()],
+                "This Month": [moment().startOf("month"), moment().endOf("month")],
+                "Last Month": [moment().subtract(1, "month").startOf("month"), moment().subtract(1, "month").endOf("month")]
+            }
+        }, cb);
+        cb(start, end);
+    });
+</script>

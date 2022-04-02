@@ -1,0 +1,187 @@
+/* Remove input background gray color */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.btn-actions {
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+.btn-actions:focus {
+    outline: none;
+}
+
+#datatables_accounts_filter, #datatables_accounts_length {
+    display: none;
+}
+
+.card-header .row-header {
+    display: flex;
+    margin-top: 5px;
+}
+
+.table-header-options {
+     justify-content: space-between;
+}
+
+.table-header-options > div:last-child {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.card-header {
+    padding-bottom: 0 !important;
+}
+
+.card-body {
+    padding-top: 10px !important;
+}
+
+.table-actions {
+    display: flex;
+}
+
+.icon-actions {
+    font-size: 20px !important;
+    cursor: pointer;
+    margin-right: 10px;
+    display: block;
+}
+
+.btn-modal {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    border: none;
+    background: transparent;
+  
+}
+
+.btn-modal:focus {
+    outline: none;
+}
+
+#select_department_account {
+    width: 200px;
+}
+
+#select_role_account {
+    width: 150px;
+}
+
+.card-header .row-header:first-child > div:last-child {
+    margin-left: 25px;
+}
+
+.card-header .table-header-options > div:first-child {
+    width: 375px;
+}
+
+.form-control-filter {
+    display: flex;
+    position: relative;
+}
+
+.icon-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    font-size: 11px !important;
+    display: none !important;
+}
+
+.icon-close-show {
+    display: block !important;
+}
+
+.form-control.select {
+    padding-right: 25px;
+}
+
+.search-input {
+    display: flex !important;
+    padding-right: 3px !important;
+    position: relative;
+}
+.search-input input {
+    width: 90%;
+    outline: none;
+    border: none;
+}
+
+.search-input .icon-close {
+    margin-right: 18px;
+}
+
+.icon-search {
+    font-size: 20px !important;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.icon-search:hover {
+    color: #47bac1;
+}
+
+.icon-refresh {
+    color: #21a3f1;
+}
+
+.icon-add {
+    color: #19a15f;
+}
+
+.icon-delete {
+    color: red;
+}
+
+/* Department */
+#datatables_departments_filter, #datatables_departments_length{
+    display: none;
+}
+
+.btn-group-department {
+    display: flex;
+    justify-content: space-between;
+}
+
+#modal_add_account_department {
+    z-index: 10000;
+}
+
+#modal_add_account_department .modal-dialog {
+    margin-right: 200px;
+    height: 500px !important;
+}
+
+#modal_add_account_department .modal-dialog .modal-content{
+    min-height: 400px !important;
+    width: 580px;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, .9);
+}
+
+#modal_add_account_department .modal-dialog .modal-content .modal-header {
+    border-bottom: none;
+}
+
+.sidebar-nav-hide {
+    display: none !important;
+}
+
+.input-group.date {
+    width: 150px;
+}
+
+.row-header > div:nth-child(2) {
+    margin-left: 25px;
+}
+
+.search-department {
+    width: 324px !important;
+}
