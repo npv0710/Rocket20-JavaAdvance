@@ -2,6 +2,8 @@ package com.vti.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,7 +65,7 @@ public class AccountController {
 	
 	
 	@RequestMapping(value = "", method = RequestMethod.POST)
-	public ResponseEntity<?> createAccount(@RequestBody AccountDTO acDTO) {
+	public ResponseEntity<?> createAccount(@RequestBody @Valid AccountDTO acDTO) {
 		System.out.println(acDTO);
 		
 		Account ac = modelMapper.map(acDTO, Account.class);
