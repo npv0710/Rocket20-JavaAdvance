@@ -29,7 +29,7 @@ public class HibernateUtils {
 		configuration.configure("hibernate.cfg.xml");
 		
 		
-		configuration.addAnnotatedClass(Employee.class);
+		//configuration.addAnnotatedClass(Employee.class);
 		configuration.addAnnotatedClass(RegularEmployee.class);
 		configuration.addAnnotatedClass(ContractEmployee.class);
 		

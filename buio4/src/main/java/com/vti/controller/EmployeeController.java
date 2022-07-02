@@ -41,10 +41,11 @@ public class EmployeeController {
 		return ResponseEntity.status(HttpStatus.OK).body("Create successfully");
 	}
 	
-	@GetMapping("/regular/name")
-	public ResponseEntity<?> getListRegularEmployeesWithSearch(@RequestParam(name="search") String search) {
-		List<RegularEmployee> regularEmployeees = employeeService.getListRegularEmployeesWithSearch(search);
+	@GetMapping("/regular/search")
+	public ResponseEntity<?> getListRegularEmployeesWithSearch(@RequestParam(name="name") String name) {
+		List<RegularEmployee> regularEmployeees = employeeService.getListRegularEmployeesWithSearch(name);
 		
 		return ResponseEntity.status(HttpStatus.OK).body(regularEmployeees);
 	}
+	
 }
