@@ -28,7 +28,8 @@ private IAddressService addressService;
 		for (Address address : addresses) {
 			//AddressDTO addDTO = new AddressDTO(address.getId(), address.getStreet(), address.getCity(), "123abc");
 			
-			AddressDTO addDTO = new AddressDTO(address.getId(), address.getStreet(), address.getCity(), address.getAccounts().toString());
+			AddressDTO addDTO = new AddressDTO(address.getId(), address.getStreet(), address.getCity(), address.getAccount().toString());
+			
 			listAddressDTO.add(addDTO);
 		}
 		return listAddressDTO;

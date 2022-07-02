@@ -44,7 +44,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter{
 		.cors()
 		.and()
 		.authorizeRequests()
-			.antMatchers("/api/accounts/**").hasAnyAuthority("Admin")
+			.antMatchers("/api/accounts/**").hasAnyAuthority("ADMIN")
 			//.antMatchers("/api/accounts/**").permitAll()
 			.antMatchers("/api/departments/**").permitAll()
 			.antMatchers("/api/auth/**").permitAll()

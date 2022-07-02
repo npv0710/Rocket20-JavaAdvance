@@ -109,12 +109,8 @@ public class Account {
 //	@JoinColumn(name = "address_id", referencedColumnName = "id")
 //	private Address address;
 	
-//	public Address getAddress() {
-//		return address;
-//	}
-	
-//	@OneToMany(mappedBy = "account")
-//	private List<Address> addresses;
+	@OneToMany(mappedBy = "account")
+	private List<Address> addresses;
 	
 //	public Address getAddress() {
 //		return address;
@@ -124,13 +120,13 @@ public class Account {
 //		this.address = address;
 //	}
 	
-	@ManyToMany()
-	@JoinTable(
-		name = "AccountAddress",
-		joinColumns = { @JoinColumn(name = "account_id")},
-		inverseJoinColumns = { @JoinColumn(name = "address_id") }
-	)
-	private List<Address> addresses;
+//	@ManyToMany()
+//	@JoinTable(
+//		name = "AccountAddress",
+//		joinColumns = { @JoinColumn(name = "account_id")},
+//		inverseJoinColumns = { @JoinColumn(name = "address_id") }
+//	)
+//	private List<Address> addresses;
 	
 	public List<Address> getAddress() {
 		return addresses;

@@ -1,5 +1,6 @@
 package com.vti.entity;
 
+import java.io.Serializable;
 import java.util.UUID;
 
 import javax.persistence.Column;
@@ -17,7 +18,7 @@ import org.hibernate.annotations.Type;
 
 @Entity
 @Table(name="Article")
-public class Article {
+public class Article implements Serializable{
 	
 	public Article() {
 		
@@ -37,17 +38,17 @@ public class Article {
 		return type;
 	}
 	
+//	@Column(name="id")
+//	@Id
+//	@GeneratedValue(strategy=GenerationType.IDENTITY)
+//	private int id;
+//	
 	
 	@Column(name="id")
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
-	
-//	@Column(name="id")
-//	@Id
-//	@GeneratedValue(strategy=GenerationType.AUTO)
-//	@Type(type = "uuid-char")
-//	private UUID id;
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Type(type = "uuid-char")
+	private UUID id;
 	
 //	@Column(name = "`code`", length = 10)
 //	@Id
@@ -77,25 +78,25 @@ public class Article {
 	@Convert(converter = ArticleStatusConverter.class)
 	private Status status;
 	
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-//	public UUID getId() {
+//	public int getId() {
 //		return id;
 //	}
 //
-//	public void setId(UUID id) {
+//	public void setId(int id) {
 //		this.id = id;
 //	}
 
-	public String getTitle() {
-		return title;
+	public UUID getId() {
+		return id;
 	}
+
+	public void setId(UUID id) {
+		this.id = id;
+	}
+//
+//	public String getTitle() {
+//		return title;
+//	}
 
 //	public String getCode() {
 //		return code;

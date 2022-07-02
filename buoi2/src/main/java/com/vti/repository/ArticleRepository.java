@@ -67,49 +67,49 @@ public class ArticleRepository {
 		}
 	}
 	
-	public void deleteArticle(int id) {
-		Session session = null;
-		Transaction transaction = null;
-		
-		try {
-			session = hibernateUtils.openSession();
-			
-			transaction = session.getTransaction();
-			transaction.begin();
-			
-			Article article = (Article) session.load(Article.class, id);
-			session.delete(article);
-			
-			transaction.commit();
-		}finally {
-			if (session != null) {
-				session.close();
-			}
-		}
-	}
-	
-	public void updateArticle(int id, String title) {
-		Session session = null;
-		Transaction transaction = null;
-		
-		try {
-			session = hibernateUtils.openSession();
-			
-			transaction = session.getTransaction();
-			transaction.begin();
-			
-			Article article = session.get(Article.class, id);
-			article.setTitle(title);
-			
-			session.save(article);
-			
-			transaction.commit();
-		}finally {
-			if (session != null) {
-				session.close();
-			}
-		}
-	}
+//	public void deleteArticle(int id) {
+//		Session session = null;
+//		Transaction transaction = null;
+//		
+//		try {
+//			session = hibernateUtils.openSession();
+//			
+//			transaction = session.getTransaction();
+//			transaction.begin();
+//			
+//			Article article = (Article) session.load(Article.class, id);
+//			session.delete(article);
+//			
+//			transaction.commit();
+//		}finally {
+//			if (session != null) {
+//				session.close();
+//			}
+//		}
+//	}
+//	
+//	public void updateArticle(int id, String title) {
+//		Session session = null;
+//		Transaction transaction = null;
+//		
+//		try {
+//			session = hibernateUtils.openSession();
+//			
+//			transaction = session.getTransaction();
+//			transaction.begin();
+//			
+//			Article article = session.get(Article.class, id);
+//			article.setTitle(title);
+//			
+//			session.save(article);
+//			
+//			transaction.commit();
+//		}finally {
+//			if (session != null) {
+//				session.close();
+//			}
+//		}
+//	}
 	
 	
 	

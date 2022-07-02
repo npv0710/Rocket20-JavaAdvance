@@ -47,12 +47,12 @@ public class Account {
 	@Column(name = "last_name", length = 50, nullable = false)
 	private String lastName;
 	
-	@Column(name = "role", columnDefinition = "ENUM('Admin', 'Employee', 'Manager')")
+	@Column(name = "role", columnDefinition = "ENUM('ADMIN', 'EMPLOYEE', 'MANAGER')")
 	@Enumerated(EnumType.STRING)
 	private AccountRole role;
 
 	public enum AccountRole {
-		Admin, Employee, Manager;
+		ADMIN, EMPLOYEE, MANAGER;
 		
 		public static AccountRole toEnum(String role) {
 			for (AccountRole item : AccountRole.values()) {

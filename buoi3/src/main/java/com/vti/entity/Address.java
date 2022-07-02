@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -55,28 +56,29 @@ public class Address {
 //	@OneToOne(mappedBy = "address")
 //	private Account account;
 	
-//	public Account getAccount() {
-//		return account;
+	public Account getAccount() {
+		return account;
+	}
+
+	public void setAccount(Account account) {
+		this.account = account;
+	}
+
+	@ManyToOne
+	@JoinColumn(name = "account_id", referencedColumnName = "id")
+	private Account account;
+	
+//	@ManyToMany(mappedBy = "addresses")
+//	private List<Account> accounts;
+//	
+//	public List<Account> getAccounts() {
+//		return accounts;
 //	}
 //
-//	public void setAccount(Account account) {
-//		this.account = account;
+//	public void setAccount(List<Account> accounts) {
+//		this.accounts = accounts;
 //	}
-
-//	@ManyToOne
-//	@JoinColumn(name = "account_id", nullable = true)
-//	private Account account;
 	
-	@ManyToMany(mappedBy = "addresses")
-	private List<Account> accounts;
-	
-	public List<Account> getAccounts() {
-		return accounts;
-	}
-
-	public void setAccount(List<Account> accounts) {
-		this.accounts = accounts;
-	}
 	@Override
 	public String toString() {
 		return "[id = " + id + "; street = " + street + "; city = " + city + "]";
